@@ -1,7 +1,5 @@
 from django.db import models
 
-# : опишите модели датчика (Sensor) и измерения (Measurement)
-
 
 class Sensor(models.Model):
     name = models.CharField(max_length=50)
@@ -15,5 +13,3 @@ class Measurement(models.Model):
                                   on_delete=models.CASCADE,
                                   related_name='measurements',
                                   null=True)
-
-# netology_smart_home

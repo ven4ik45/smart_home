@@ -1,14 +1,12 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from measurement.views import Sensors, SensorId, SensorUpdate, Measurements
+from measurement.views import Sensors, SensorId, Measurements
 
 router = routers.DefaultRouter()
 
 urlpatterns = [
-    path('sensors/', Sensors.as_view()),
-    # path('sensor_create/', SensorCreate.as_view()),
-    path('sensors/<pk>/', SensorId.as_view()),
-    path('sensor_update/<pk>/', SensorUpdate.as_view()),
-    path('measurements/', Measurements.as_view()),
+    path('sensors/', Sensors.as_view()), # получение, добавление датчиков: GET, POST
+    path('sensors/<pk>/', SensorId.as_view()), # конкретный ид сенсора GET, PATH
+    path('measurements/', Measurements.as_view()), # добавление измерения для датчика: POST
 ]
